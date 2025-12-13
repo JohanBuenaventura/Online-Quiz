@@ -1,0 +1,34 @@
+Install instructions for optional PDF parser (Windows)
+
+Why:
+- The app can use smalot/pdfparser (PHP) for better PDF text extraction.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- Composer will modify `composer.lock` and `vendor/` directory. Don't commit your local vendor directory unless you intend to.
+- After installation, restart Apache (XAMPP) if needed so PHP's autoloader picks up the new package.
+- If you prefer not to install anything, the heuristic generator works with TXT/DOCX and the AI option will still function.Notes  It should output `true`.  php -r "var_export(class_exists('Smalot\\PdfParser\\Parser'));"- After installing via Composer, verify in PHP that the class exists:Verification- On Windows you can install the Poppler utilities and ensure `pdftotext.exe` is available on PATH.
+- Example: Download poppler for Windows (search "poppler windows binaries"), extract, and add the bin folder to your PATH.
+Option B — pdftotext CLI (no PHP dependency)   composer require smalot/pdfparserDirect composer command (alternative):   This runs `composer require smalot/pdfparser` for you.   tools\install_pdfparser.bat   or use the Composer-Setup.exe which adds Composer to PATH.
+4. Run the helper script I added (recommended):   https://getcomposer.org/download/3. If you don't have Composer installed, download and run the Composer installer for Windows from:   cd /d C:\xampp\htdocs\online_quiz1. Open a Command Prompt (cmd.exe) as your user.
+2. Change to the project root (where `composer.json` is). For example:Option A (recommended) — Composer (PHP package)- If you don't install this, the extractor will try to use the `pdftotext` CLI tool instead.
