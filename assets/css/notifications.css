@@ -1,0 +1,19 @@
+/* notifications.css */
+.notif-container { position: relative; display:inline-block; margin-right:12px; }
+.notif-bell { background:transparent; border:none; font-size:20px; cursor:pointer; color:#fff; padding:6px; border-radius:8px; transition:background var(--transition); }
+.notif-bell:hover{background:rgba(255,255,255,0.06)}
+.notif-count { position:absolute; top:-6px; right:-6px; background:var(--danger); color:#fff; font-size:12px; padding:3px 7px; border-radius:999px; display:none; box-shadow:var(--shadow-sm)}
+.notif-dropdown { display:none; position:absolute; right:0; top:44px; width:340px; background:var(--surface); color:var(--bg-900); border-radius:12px; box-shadow:var(--shadow-md); border:1px solid rgba(15,23,42,0.04); z-index:9999; overflow:hidden }
+.notif-dropdown.active { display:block; animation:fadeIn .12s ease; }
+.notif-header { padding:12px 14px; border-bottom:1px solid rgba(15,23,42,0.04); background:linear-gradient(180deg,rgba(58,134,255,0.04),transparent); }
+.notif-list { max-height:320px; overflow:auto; }
+.notif-item { padding:12px 14px; border-bottom:1px solid rgba(15,23,42,0.03); font-size:14px; display:flex; flex-direction:column }
+.notif-item small { display:block; color:var(--muted); margin-top:6px; font-size:12px; }
+.notif-item.unread{background:linear-gradient(90deg, rgba(58,134,255,0.04), transparent)}
+.notif-actions { padding:10px; text-align:center; border-top:1px solid rgba(15,23,42,0.03); background:var(--surface); }
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+@media (max-width:480px){
+	.notif-dropdown{right:8px;left:8px;width:auto}
+}

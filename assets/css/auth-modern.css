@@ -1,0 +1,197 @@
+/* === MODERN ED-TECH THEME (Kahoot/Quizizz Style) === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary: #46178f;       /* Deep Purple (Kahoot-ish) */
+    --primary-light: #5d2f91;
+    --accent: #099b96;        /* Teal Accent (Quizizz-ish) */
+    --accent-hover: #057a76;
+    --bg-input: #f2f2f2;
+    --text-main: #333;
+    --text-muted: #777;
+    --white: #ffffff;
+    --danger: #ff3355;
+    --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden; /* Prevents scroll on desktop */
+}
+
+/* === SPLIT SCREEN LAYOUT === */
+.split-screen {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Left Side: The Brand Vibe */
+.left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, var(--primary) 0%, #2a0a5e 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    text-align: center;
+}
+
+/* CSS-Only Geometric Shapes (Kahoot style background) */
+.shape {
+    position: absolute;
+    opacity: 0.1;
+    z-index: 0;
+}
+.circle {
+    width: 300px; height: 300px; border-radius: 50%; background: white;
+    top: -50px; left: -50px;
+}
+.square {
+    width: 150px; height: 150px; background: var(--accent);
+    bottom: 50px; right: 10%; transform: rotate(45deg);
+}
+.triangle {
+    width: 0; height: 0; 
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid var(--white);
+    top: 20%; right: 20%;
+}
+
+.brand-content { z-index: 1; max-width: 400px; }
+.brand-content h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; }
+.brand-content p { font-size: 1.2rem; opacity: 0.9; line-height: 1.6; }
+
+/* Right Side: The Clean Form */
+.right-panel {
+    flex: 1; /* Takes up equal space or adjusts based on screen */
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.form-header { margin-bottom: 30px; }
+.form-header h2 { font-size: 2rem; font-weight: 700; color: var(--text-main); margin-bottom: 5px; }
+.form-header p { color: var(--text-muted); }
+
+/* === CHUNKY INPUTS === */
+.form-group { margin-bottom: 20px; }
+.label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-box {
+    background: var(--bg-input);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    padding: 5px 15px;
+}
+
+.input-box:focus-within {
+    background: var(--white);
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(70, 23, 143, 0.1);
+}
+
+.input-box i { color: var(--text-muted); font-size: 1.1rem; margin-right: 10px; }
+
+.input-field {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-main);
+    outline: none;
+}
+
+/* === GAMIFIED BUTTON === */
+.btn-register {
+    width: 100%;
+    padding: 15px;
+    background: var(--accent);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 0 #057a76; /* This creates the "Game Button" 3D effect */
+    margin-top: 10px;
+}
+
+.btn-register:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #04635f;
+}
+
+.btn-register:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 #04635f;
+}
+
+/* Links */
+.bottom-text { margin-top: 25px; text-align: center; color: var(--text-muted); font-size: 0.95rem; }
+.bottom-text a { color: var(--primary); text-weight: 700; text-decoration: none; }
+.bottom-text a:hover { text-decoration: underline; }
+
+/* Select Dropdown Customization */
+select.input-field { cursor: pointer; }
+
+/* Error Box */
+.error-banner {
+    background-color: #ffebee;
+    color: var(--danger);
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--danger);
+}
+
+.field-msg { font-size: 0.8rem; color: var(--danger); margin-top: 5px; font-weight: 500; }
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 900px) {
+    .split-screen { flex-direction: column; }
+    .left-panel { 
+        flex: none; 
+        height: 150px; 
+        padding: 20px;
+        justify-content: flex-end;
+    }
+    .brand-content h1 { font-size: 1.8rem; margin: 0; }
+    .brand-content p { display: none; } /* Hide description on mobile */
+    .shapes { display: none; }
+    .right-panel { flex: 1; align-items: flex-start; padding-top: 30px;}
+    body { overflow: auto; }
+}

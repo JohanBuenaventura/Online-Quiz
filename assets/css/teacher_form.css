@@ -1,0 +1,158 @@
+/* teacher_form.css — polished, unified form styles */
+
+:root{
+  --bg:#f4f6fa;
+  --card:#fff;
+  --primary:#2563eb;
+  --primary-dark:#1e4fcf;
+  --muted:#667084;
+  --text:#111827;
+  --radius:12px;
+  --shadow:0 8px 24px rgba(16,24,40,0.06);
+  --shadow-2:0 4px 14px rgba(16,24,40,0.04);
+  --gap:18px;
+}
+
+/* page background + center */
+body.teacher-page,
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* page heading */
+body.teacher-page h1,
+h1 {
+  margin: 40px 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+
+/* form card wrapper */
+.form-card,
+form {
+  width: 100%;
+  max-width: 720px;        /* wider card than before */
+  background: var(--card);
+  padding: 26px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 18px;
+  display: block;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* slight lift on hover (desktop) */
+@media (hover: hover) {
+  .form-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); }
+}
+
+/* internal form layout */
+.form-card form,
+.form-card > * {
+  margin: 0;
+}
+
+/* label block */
+.form-row {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  color: #263238;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* inputs full width */
+input[type="text"], select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e6eefb; /* subtle */
+  background: #fff;
+  font-size: 15px;
+  color: var(--text);
+  box-shadow: none;
+  transition: border-color .16s ease, box-shadow .16s ease;
+}
+input[type="text"]:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 4px 18px rgba(37,92,255,0.08);
+  outline: none;
+}
+
+/* checkbox row - horizontal alignment */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #374151;
+}
+.checkbox-row input[type="checkbox"]{
+  width:18px;
+  height:18px;
+  margin:0;
+  transform: translateY(1px);
+}
+
+/* primary button (full width on card) */
+.form-actions {
+  margin-top: 8px;
+}
+.form-actions .btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--primary);
+  color:#fff;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background .14s ease, transform .08s ease;
+}
+.form-actions .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+.form-actions .btn:active { transform: scale(.995); }
+
+/* centered back link */
+.back-link {
+  display: block;
+  margin: 18px auto 36px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* inline small error text */
+.form-error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* smaller screens */
+@media (max-width:720px){
+  .form-card { padding: 20px; margin: 14px; max-width: 520px; }
+  body.teacher-page h1 { margin-top: 28px; font-size: 24px; }
+}
+@media (max-width:420px){
+  .form-card { padding: 16px; margin: 12px; }
+  .form-actions .btn { padding: 12px; font-size: 15px; }
+}

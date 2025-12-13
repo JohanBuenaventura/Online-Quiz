@@ -1,0 +1,80 @@
+
+/* Manage quizzes uses the global theme variables from theme.css */
+h1 { font-size:1.6rem; margin:0 0 10px 0; color:var(--bg-900) }
+
+body { margin:0; padding:0; line-height:1.6 }
+h1 { font-size:1.6rem; margin:0 0 10px 0; color:var(--bg-900) }
+
+/* === Container === */
+.container { max-width: var(--max-width); margin: 30px auto; padding: 0 20px }
+
+/* === Action Links === */
+a, button, a.btn { cursor:pointer; border-radius:8px; font-weight:600 }
+a { color: var(--primary) }
+a.btn, button { background: var(--primary); color:#fff; padding:8px 14px }
+a.btn:hover, button:hover { background: var(--primary-600); transform:translateY(-2px) }
+
+/* === Table Styling === */
+table { width:100%; border-collapse:collapse; background:var(--surface); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); margin-top:16px; font-size:15px }
+
+thead { background: rgba(58,134,255,0.04) }
+
+th, td { padding:12px 10px; border-bottom:1px solid rgba(15,23,42,0.04); text-align:left }
+
+th { font-weight:700; color:var(--bg-900) }
+
+tbody tr:hover { background: rgba(58,134,255,0.03) }
+
+/* === Inline Form Buttons (Delete) === */
+form { display:inline }
+button.danger { background: var(--danger); padding:6px 10px; font-size:14px }
+button.danger:hover { background:#dc2626 }
+
+/* === Back Link === */
+p a.back { display:inline-block; margin-top:20px }
+
+/* === Published Status === */
+td:nth-child(3) { font-weight:600 }
+
+/* === Responsive Table === */
+@media (max-width: 700px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    background: var(--surface);
+    margin-bottom: 16px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 10px;
+  }
+
+  td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  button,
+  a.btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}

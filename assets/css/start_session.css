@@ -1,0 +1,134 @@
+/* === Start Session Page (Academic Light Theme) === */
+
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: #f9fafc;
+  color: #1f2937;
+  margin: 0;
+  padding: 40px;
+}
+
+/* Centered main container */
+.container {
+  max-width: 480px;
+  background: #ffffff;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  color: #111827;
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Label styling */
+label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Select dropdown */
+select {
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f9fafb;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Error message */
+p.error {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: -4px;
+}
+
+/* Submit button */
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Success message */
+.success {
+  text-align: center;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.success strong {
+  color: #047857;
+}
+
+/* Links */
+a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Back link */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  .container {
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}

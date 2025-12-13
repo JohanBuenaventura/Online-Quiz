@@ -1,0 +1,292 @@
+/* === STUDENT PLAY SCREEN === */
+:root {
+    --bg-body: #0f172a;       /* Navy Blue */
+    --card-bg: #ffffff;
+    --primary: #2563eb;       /* Royal Blue */
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header Bar */
+.game-header {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.quiz-title { font-size: 1.1rem; font-weight: 600; opacity: 0.9; }
+.session-badge { 
+    background: rgba(255,255,255,0.15); 
+    padding: 5px 12px; 
+    border-radius: 20px; 
+    font-family: monospace; 
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Main Card */
+.game-card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 800px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 30px;
+    text-align: center;
+    min-height: 400px; /* Consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Question Text */
+.question-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+/* Answer Grid */
+.choices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+.choice-btn {
+    background: #f8fafc;
+    border: 2px solid var(--border);
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left; /* Better readability */
+    display: flex;
+    align-items: center;
+}
+
+.choice-btn:hover {
+    border-color: var(--primary);
+    background: #eff6ff;
+    transform: translateY(-2px);
+}
+
+.choice-btn:active, .choice-btn.selected {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: scale(0.98);
+}
+
+/* Waiting State Animation */
+.waiting-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-muted);
+}
+
+.pulse-ring {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: #e0f2fe;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+    70% { box-shadow: 0 0 0 20px rgba(37, 99, 235, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+/* Metadata (Timer/Footer) */
+.metadata {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Leaderboard Section (Hidden by default) */
+.leaderboard-box {
+    margin-top: 20px;
+    text-align: left;
+    border-top: 2px solid #f1f5f9;
+    padding-top: 20px;
+    display: none; /* JS toggles this */
+}
+
+.leaderboard-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.leaderboard-row:nth-child(1) { color: #d97706; font-weight: bold; } /* Gold */
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .choices-grid { grid-template-columns: 1fr; } /* Stack buttons */
+    .game-card { padding: 20px; min-height: auto; }
+    .question-text { font-size: 1.2rem; }
+}
+
+/* === FEEDBACK / RESULT OVERLAY === */
+
+.feedback-box {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.feedback-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.feedback-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.feedback-sub {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ... existing styles ... */
+
+/* === 1. POPUP MODAL (Feedback) === */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.8); /* Dark overlay */
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.feedback-card {
+    background: white;
+    width: 90%;
+    max-width: 350px;
+    padding: 40px 20px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.show .feedback-card {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.feedback-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.feedback-title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.feedback-score {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #64748b;
+}
+
+/* Correct State */
+.is-correct .feedback-icon { color: #22c55e; animation: bounce 0.6s; }
+.is-correct .feedback-title { color: #166534; }
+
+/* Wrong State */
+.is-wrong .feedback-icon { color: #ef4444; animation: shake 0.5s; }
+.is-wrong .feedback-title { color: #991b1b; }
+
+/* === 2. LEADERBOARD (Bottom Section) === */
+.leaderboard-section {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255,255,255,0.05); /* Glass effect on dark bg */
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 20px;
+    color: white;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.lb-title { font-weight: 700; color: #38bdf8; display: flex; align-items: center; gap: 8px; }
+
+/* Animations */
+@keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
+@keyframes shake { 0%, 100% {transform: translateX(0);} 25% {transform: translateX(-5px);} 75% {transform: translateX(5px);} }
+

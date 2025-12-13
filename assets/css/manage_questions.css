@@ -1,0 +1,128 @@
+/* Base Layout */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--bg-900);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Page Title */
+h1 {
+  margin-top: 40px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--bg-900);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* Table Container */
+table {
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 900px;
+  margin-top: 25px;
+  background-color: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Table Header */
+th {
+  background-color: var(--primary);
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+}
+
+/* Table Rows */
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(15,23,42,0.04);
+  font-size: 0.95rem;
+}
+
+/* Zebra striping */
+tr:nth-child(even) {
+  background-color: rgba(58,134,255,0.03);
+}
+
+/* Hover effect */
+tr:hover {
+  background-color: rgba(58,134,255,0.04);
+  transition: background-color 0.2s ease;
+}
+
+/* Action Links */
+a {
+  color: var(--primary-600);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Delete Button (Inline Form) */
+form {
+  display: inline-block;
+}
+
+button {
+  background-color: var(--danger);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #dc2626;
+  transform: scale(1.03);
+}
+
+/* Back Link */
+p a {
+  display: inline-block;
+  margin-top: 25px;
+  color: var(--primary-600);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 700px) {
+  table {
+    width: 95%;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+  }
+}

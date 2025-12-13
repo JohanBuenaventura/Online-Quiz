@@ -1,0 +1,171 @@
+/* === JOIN SESSION PAGE === */
+:root {
+    --bg-body: #0f172a;       /* Navy Blue (Brand) */
+    --card-bg: #ffffff;
+    --primary: #2563eb;       /* Royal Blue */
+    --primary-hover: #1d4ed8;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --error: #ef4444;
+    --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background-color: var(--bg-body);
+    /* Subtle geometric pattern for texture */
+    background-image: radial-gradient(#1e293b 1px, transparent 1px);
+    background-size: 20px 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* The Central Card */
+.join-card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Icon Animation */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #eff6ff;
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 25px auto;
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.join-card h1 {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.join-card p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Input Styling */
+.form-group { margin-bottom: 25px; text-align: left; }
+
+.code-label {
+    display: block;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center; 
+}
+
+.code-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 2.5rem; /* Huge text for readability */
+    text-align: center;
+    letter-spacing: 8px; /* Spacing makes code readable */
+    text-transform: uppercase; /* Force uppercase */
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: #f8fafc;
+    transition: 0.2s;
+    color: var(--text-main);
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.code-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    transform: scale(1.02);
+}
+
+.code-input::placeholder {
+    color: #cbd5e1;
+    letter-spacing: 2px;
+    font-size: 2rem;
+}
+
+/* Button Styling */
+.btn-join {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+}
+
+.btn-join:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -3px rgba(37, 99, 235, 0.4);
+}
+
+.btn-join:active { transform: translateY(0); }
+
+/* Error Message */
+.error-msg {
+    background: #fef2f2;
+    color: var(--error);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    border: 1px solid #fca5a5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Footer Link */
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    font-weight: 500;
+}
+.back-link:hover { color: white; }

@@ -1,0 +1,116 @@
+
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --background: #f9fafc;
+  --text: #111;
+  --muted: #667084;
+  --border: #d1d9e6;
+  --radius: 10px;
+  --shadow-light: 0 6px 16px rgba(16, 24, 40, 0.06);
+  --shadow-hover: 0 10px 25px rgba(16, 24, 40, 0.1);
+  --transition: all 0.2s ease;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* === Page Title === */
+h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* === Leaderboard Table === */
+table {
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+th {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px;
+  font-size: 1rem;
+  text-align: left;
+}
+
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #333;
+  font-weight: 500;
+}
+
+tr:hover {
+  background: #f1f5ff;
+  transition: var(--transition);
+}
+
+tr:first-child td {
+  border-top: none;
+}
+
+/* === Rank Highlight === */
+td:first-child {
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* === No Participants === */
+p {
+  color: var(--muted);
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* === Back Link === */
+a {
+  display: inline-block;
+  margin-top: 30px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+a:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* === Responsive Table === */
+@media (max-width: 600px) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}

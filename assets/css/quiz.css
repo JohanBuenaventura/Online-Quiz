@@ -1,0 +1,98 @@
+/* Simple Kahoot-like UI (minimal) - uses global theme variables from theme.css */
+*{
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+body{
+    margin:0;
+    background:linear-gradient(135deg,var(--bg-900) 0%, #10243a 100%);
+    color:#fff;min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.container{
+    width:100%;max-width:980px;padding:20px
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:16px;
+}
+.brand{
+    font-size:20px;
+    font-weight:700;
+    color:var(--surface);
+}
+.session-code{
+    background:rgba(255,255,255,0.06);
+    padding:8px 12px;
+    border-radius:8px;
+}
+.card{
+    background:var(--surface);
+    color:var(--bg-900);
+    border-radius:12px;
+    padding:28px;
+    box-shadow:0 10px 30px rgba(2,6,23,0.6);
+}
+.question{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+.choices{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+.choice{
+    padding:16px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform .12s ease,box-shadow .12s ease;
+}
+.choice:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+.choice.primary{
+    background:linear-gradient(90deg,var(--primary),var(--primary-600));
+    color:#fff;
+}
+.choice.outline{
+    background:var(--surface);
+    color:var(--bg-900)}
+.metadata{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:14px;
+    color:var(--muted)
+};
+.timer{
+    font-weight:700;
+}
+.leaderboard{
+    margin-top:18px;
+}
+.leaderboard-row{display:flex;
+    justify-content:space-between;
+    padding:8px 10px;
+    border-bottom:1px solid rgba(15,23,42,0.04);
+}
+.empty{
+    color:var(--muted);
+    text-align:center;
+    padding:20px;
+}
+@media (max-width:600px){
+    .choices{grid-template-columns:1fr}
+    .question{font-size:18px;padding:4px}
+}

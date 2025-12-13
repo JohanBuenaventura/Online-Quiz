@@ -1,0 +1,53 @@
+/* Professional UI overrides - loads after page-specific CSS to harmonize styles */
+/* Uses variables from theme.css */
+
+/* Ensure base typography is consistent */
+html,body,input,button,select,textarea{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--bg-900);}
+
+/* Normalize headings */
+h1,h2,h3,h4{color:var(--bg-900);margin:0 0 12px 0;font-weight:600}
+h1{font-size:1.5rem}
+
+/* Cards */
+.card{background:var(--surface);border-radius:10px;padding:16px;box-shadow:var(--shadow-sm);border:1px solid rgba(15,23,42,0.04)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;border:0;background:var(--primary);color:#fff;font-weight:600;cursor:pointer;transition:all .18s}
+.btn.secondary{background:transparent;color:var(--primary);border:1px solid rgba(58,134,255,0.12)}
+.btn.ghost{background:transparent;color:var(--bg-900);border:1px solid rgba(15,23,42,0.06)}
+.btn:focus{outline:2px solid rgba(58,134,255,0.12);outline-offset:2px}
+
+/* Form controls */
+.form-control, input[type="text"], input[type="email"], input[type="password"], textarea, select { background:#fff;border:1px solid #e6edf8;padding:10px;border-radius:8px;color:var(--bg-900);width:100%;box-sizing:border-box }
+.form-row{margin-bottom:12px}
+
+/* Table improvements */
+table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:10px;overflow:hidden}
+th,td{padding:12px 10px;border-bottom:1px solid rgba(15,23,42,0.04);text-align:left}
+thead{background:#f6f9ff}
+tbody tr:hover{background:#fbfdff}
+
+/* Header/nav fallback */
+.site-header{padding:12px 20px;border-radius:0 0 12px 12px}
+.brand{font-weight:700}
+
+/* Notifications dropdown tweaks */
+.notif-dropdown{min-width:300px}
+.notif-item{display:flex;flex-direction:column}
+.notif-item.unread{background:linear-gradient(90deg, rgba(58,134,255,0.04), transparent)}
+
+/* Small utility classes */
+.muted{color:var(--muted)}
+.text-right{text-align:right}
+.flex{display:flex}
+.items-center{align-items:center}
+.gap-8{gap:8px}
+
+/* Responsive tweaks */
+@media (max-width:768px){
+  .container{padding:0 14px}
+  .site-header{padding:12px}
+}
+
+/* Accessibility: focus visible for keyboard users */
+:focus{outline:2px solid rgba(58,134,255,0.12);outline-offset:2px}

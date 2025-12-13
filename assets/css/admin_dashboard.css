@@ -1,0 +1,99 @@
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e4fcf;
+  --background: #f9fafc;
+  --text: #111;
+  --muted: #667084;
+  --border: #d1d9e6;
+  --radius: 10px;
+  --shadow: 0 6px 16px rgba(16, 24, 40, 0.06);
+  --shadow-hover: 0 10px 25px rgba(16, 24, 40, 0.1);
+  --transition: all 0.2s ease;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* === Header === */
+h1 {
+  background: var(--primary);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* === Container === */
+ul {
+  list-style: none;
+  margin: 40px auto;
+  padding: 0;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* === Dashboard Links === */
+ul li a {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+ul li a:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+ul li a:active {
+  transform: scale(0.98);
+}
+
+/* === Footer or Back Link === */
+ul li:last-child a {
+  background: #f8fafc;
+  color: #333;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+}
+
+ul li:last-child a:hover {
+  background: #e0e7ff;
+  color: #111;
+}
+
+/* === Responsive Layout === */
+@media (max-width: 600px) {
+  ul {
+    max-width: 90%;
+    gap: 12px;
+  }
+
+  ul li a {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+    padding: 16px 0;
+  }
+}

@@ -1,0 +1,187 @@
+/* === PROFESSIONAL ACADEMIC THEME === */
+:root {
+    /* Academic Colors */
+    --primary: #0f172a;       /* Dark Navy (Trustworthy) */
+    --primary-hover: #1e293b; /* Slightly lighter navy */
+    --accent: #2563eb;        /* Royal Blue (Action) */
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --bg-input: #ffffff;
+    --bg-body: #f1f5f9;
+    --white: #ffffff;
+    --danger: #ef4444;
+    --radius: 6px;            /* Sharp corners = Professional */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg-body);
+}
+
+/* === SPLIT LAYOUT === */
+.split-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* Left Panel: Branding */
+.brand-panel {
+    flex: 0 0 40%; /* Fixed width 40% */
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+}
+
+.brand-panel h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.brand-panel p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+/* Right Panel: Form */
+.form-panel {
+    flex: 1;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-header { margin-bottom: 30px; }
+.form-header h2 { font-size: 1.8rem; color: var(--text-main); margin-bottom: 8px; }
+.form-header p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* === FORM ELEMENTS === */
+.form-group { margin-bottom: 20px; }
+
+.form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+/* Professional Input */
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px 12px 40px; /* Space for icon */
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+    background: var(--bg-input);
+}
+
+/* Focus State - subtle blue glow */
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.form-input:focus + i { color: var(--accent); }
+
+/* Select Dropdown */
+select.form-input {
+    cursor: pointer;
+    background-color: white;
+}
+
+/* === BUTTONS === */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Links and Footer */
+.form-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.form-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+.form-footer a:hover { text-decoration: underline; }
+
+/* Error Message */
+.alert {
+    padding: 12px;
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.field-error {
+    font-size: 0.85rem;
+    color: var(--danger);
+    margin-top: 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .split-container { flex-direction: column; }
+    .brand-panel { display: none; } /* Hide left panel on mobile for cleanliness */
+    .form-panel { padding: 20px; }
+}
