@@ -12,8 +12,9 @@ return [
     'smtp_from_name' => getenv('SMTP_FROM_NAME') ?: 'Online Quiz System',
 
     // Optional: OpenAI API key (leave empty unless needed)
-    'gemini_api_key' => getenv('AIzaSyDZunZNFI1mnaT5tAOInHYNWNmW6pQ0bXo') ?: '',
+    'gemini_api_key' => getenv('') ?: '',
 
     // Max upload size (default 10 MB)
     'max_upload_size' => getenv('MAX_UPLOAD_SIZE') ?: 10485760,
 ];
+
